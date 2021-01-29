@@ -1,0 +1,16 @@
+extends base
+
+block content
+    .main
+        .login
+            .login__heading
+                h1.heading LOGIN
+            form.login__form(action="#")
+                .login__form--input
+                    <label class= "login__label" for="email" >Your Email :</label>
+                    <input class= "login__input" type="email" id="email" name= "email" placeholder="Your email"><br>
+                    //- label.otp__label(for="otp") Enter OTP :
+                    //- input#otp.otp__input(type="text" name="otp" placeholder="****")
+                    br
+                <button class="login__btn">Send OTP</button>
+                //button.login__btn Submit
