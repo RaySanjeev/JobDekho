@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav__list">
+            <!-- <li class="nav__item--link"><a href="#" class="nav__link">NEARBY JOBS</a></li> -->
+            <li class="nav_item"><img class="nav__logo" src="./image/logo-white.png" alt="Brand-logo"></li>
+            <div class="nav__buttons">
+             <li class="nav__item"><button class="nav__btn nav__btn--1">PROFILE</button></li>
+             <!-- <li class="nav__item"><a href="http://127.0.0.1:5500/public/profile.html" class="nav__btn nav__btn--1"></a></li> -->
+             <li class="nav__item"><button class="nav__btn nav__btn--2">LOGOUT</button></li>
+            </div>
+        </ul>
+    </nav>
+
+    <div class="employer__main">
+        <h1 class="job__create">Create job</h1>
+        <form class="employer__form--full">
+
+            <div class="employer__form">
+                <label class="profile__label login__label employer__label" for="name">Company Name: </label>
+                <input class="profile__input employer__input" type="text" placeholder="ex: Accenture" id="name">
+            </div>
+            <div class="employer__form">
+                <label class="profile__label login__label employer__label" for="position">Position: </label>
+                <input class="profile__input employer__input" placeholder="ex: Web Developer" type="text" id="position">
+            </div>
+            <div class="employer__form">
+                <label class="profile__label login__label employer__label" for="location">Location: </label>
+                <input class="profile__input employer__input" placeholder="ex: Pune" type="text" id="location">
+            </div>
+            <div class="employer__form">
+                <label class="profile__label login__label employer__label" for="date">Expired At: </label>
+                <input class="profile__input employer__input" placeholder="ex: 10 days" type="number" id="date">
+            </div>
+            <div class="employer__form">
+                <label class="profile__label login__label employer__label" for="description">Description: </label>
+                <textarea  class="profile__input employer__input" id="description" cols="60" rows="10"></textarea>
+            </div>
+            <button class="submit__btn employer__submit">submit</button>
+        </form>
+    </div>
+</body>
+</html>
