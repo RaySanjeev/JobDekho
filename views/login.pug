@@ -7,10 +7,14 @@ block content
                 h1.heading LOGIN
             form.login__form(action="#")
                 .login__form--input
-                    <label class= "login__label" for="email" >Your Email :</label>
-                    <input class= "login__input" type="email" id="email" name= "email" placeholder="Your email"><br>
-                    //- label.otp__label(for="otp") Enter OTP :
-                    //- input#otp.otp__input(type="text" name="otp" placeholder="****")
                     br
-                <button class="login__btn">Send OTP</button>
-                //button.login__btn Submit
+                    br
+                    label.login__label(for="otp") Your Email
+                    input.login__input(type="email" id= "email" name="email" placeholder="Your email")
+                    br
+                    br
+                    label.otp__label(for="otp") Enter OTP :
+                    input#otp.otp__input(type="text" name="otp" placeholder="****")
+                button.login__btn.send__otp Send OTP
+                br
+                button.login__btn.submit__login Submit

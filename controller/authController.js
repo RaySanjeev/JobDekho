@@ -66,7 +66,7 @@ exports.login = catchAsync(async (req, res, next) => {
     if(Date.now() > user.expiresAt) {
         return next(new AppError('Your OTP has expired. Please try again!', 400))
     }
-
+    console.log(typeof(otp), typeof(user.otp))
     if(Number(otp) !== user.otp) {
         return next(new AppError('Entered OTP is invalid. Please try again', 400))
     }
