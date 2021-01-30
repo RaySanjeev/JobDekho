@@ -1,79 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
 
     <title>JobDekho | Sanjeev Ray</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav class="navbar">
-        <ul class="nav__list">
-            <li class="nav__item--link"><a href="#" class="nav__link">NEARBY JOBS</a></li>
-            <li class="nav_item"><img class="nav__logo" src="./image/logo-white.png" alt="Brand-logo"></li>
-            <div class="nav__buttons">
-             <li class="nav__item"><button class="nav__btn nav__btn--1">PROFILE</button></li>
-             <!-- <li class="nav__item"><a href="http://127.0.0.1:5500/public/profile.html" class="nav__btn nav__btn--1"></a></li> -->
-             <li class="nav__item"><button class="nav__btn nav__btn--2">LOGOUT</button></li>
-            </div>
-        </ul>
+      <ul class="nav__list">
+        <li class="nav__item--link">
+          <a href="#" class="nav__link">NEARBY JOBS</a>
+        </li>
+        <li class="nav_item">
+          <img
+            class="nav__logo"
+            src="./image/logo-white.png"
+            alt="Brand-logo"
+          />
+        </li>
+        <div class="nav__buttons">
+          <li class="nav__item">
+            <button class="nav__btn nav__btn--1">PROFILE</button>
+          </li>
+          <!-- <li class="nav__item"><a href="http://127.0.0.1:5500/public/profile.html" class="nav__btn nav__btn--1"></a></li> -->
+          <li class="nav__item">
+            <button class="nav__btn nav__btn--2">LOGOUT</button>
+          </li>
+        </div>
+      </ul>
     </nav>
 
     <div class="list__jobs">
-        <div class="job">
-            <h1 class="company__name">ACCENTURE</h1>
-            <div class="job__description">
-                <p class="job__element"><span class="span__element">position: </span>Full stack developer</p>
-                <p class="job__element"><span class="span__element">expiration: </span> 20 Feb 2021</p>
-                <p class="job__element"><span class="span__element">location: </span> Mumbai</p>
-            </div>
-            <p class="job__element job__summary"><span class="span__element">description: </span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem, placeat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, nobis!</p>
-            <div class="upload">
-                <form class="job__form">
-                    <label for="resume" class="span__element form__label">Upload Resume: </label>
-                    <input class="job__input" type="file" name="" id="resume">
-                </form>
-                <button class="submit__btn">submit</button>
-            </div>
+      <div class="job">
+        <h1 class="company__name">ACCENTURE</h1>
+        <div class="job__description">
+          <p class="job__element">
+            <span class="span__element">position: </span>Full stack developer
+          </p>
+          <p class="job__element">
+            <span class="span__element">expiration: </span> 20 Feb 2021
+          </p>
+          <p class="job__element">
+            <span class="span__element">location: </span> Mumbai
+          </p>
         </div>
-        <div class="job">
-            <h1 class="company__name">INFOTECH</h1>
-            <div class="job__description">
-                <p class="job__element"><span class="span__element">position: </span>WEB DEVELOPER</p>
-                <p class="job__element"><span class="span__element">expiration: </span> 28 Feb 2021</p>
-                <p class="job__element"><span class="span__element">location: </span> Pune</p>
-            </div>
-            <p class="job__element job__summary"><span class="span__element">description: </span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem, placeat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, nobis!</p>
-            <div class="upload">
-                <form class="job__form">
-                    <label for="resume" class="span__element form__label">Upload Resume: </label>
-                    <input class="job__input" type="file" name="" id="resume">
-                </form>
-                <button class="submit__btn">submit</button>
-            </div>
-            
+        <p class="job__element job__summary">
+          <span class="span__element">description: </span>Lorem ipsum dolor, sit
+          amet consectetur adipisicing elit. Dolorem, placeat. Lorem ipsum dolor
+          sit amet consectetur adipisicing elit. Quo, nobis!
+        </p>
+        <div class="upload">
+          <form class="job__form">
+            <label for="resume" class="span__element form__label"
+              >Upload Resume:
+            </label>
+            <input class="job__input" type="file" name="" id="resume" />
+          </form>
+          <button class="submit__btn">submit</button>
         </div>
+      </div>
+      <div class="job">
+        <h1 class="company__name">INFOTECH</h1>
+        <div class="job__description">
+          <p class="job__element">
+            <span class="span__element">position: </span>WEB DEVELOPER
+          </p>
+          <p class="job__element">
+            <span class="span__element">expiration: </span> 28 Feb 2021
+          </p>
+          <p class="job__element">
+            <span class="span__element">location: </span> Pune
+          </p>
+        </div>
+        <p class="job__element job__summary">
+          <span class="span__element">description: </span>Lorem ipsum dolor, sit
+          amet consectetur adipisicing elit. Dolorem, placeat. Lorem ipsum dolor
+          sit amet consectetur adipisicing elit. Quo, nobis!
+        </p>
+        <div class="upload">
+          <form class="job__form">
+            <label for="resume" class="span__element form__label"
+              >Upload Resume:
+            </label>
+            <input class="job__input" type="file" name="" id="resume" />
+          </form>
+          <button class="submit__btn">submit</button>
+        </div>
+      </div>
     </div>
 
     <footer class="footer">
-        <ul class="footer__list">
-            <div class="footer__block">
-                <img src="./image/logo-white.png" alt="Brand-logo" class="footer__brand--logo">                
-                 <p class="footer__brand">
-                     <span class="footer__brand--name">JobDekho</span>
-                     <span class="footer__brand--copyright">&copy; to Sanjeev Ray and Foundation</span>          
-                 </p>
-            </div>
-            <div class="footer__block--1">
-             <li class="footer__link">About Us</li>
-             <li class="footer__link">Careers</li>
-             <li class="footer__link">Contacts</li>
-            </div>      
-        </ul>
-        
+      <ul class="footer__list">
+        <div class="footer__block">
+          <img
+            src="./image/logo-white.png"
+            alt="Brand-logo"
+            class="footer__brand--logo"
+          />
+          <p class="footer__brand">
+            <span class="footer__brand--name">JobDekho</span>
+            <span class="footer__brand--copyright"
+              >&copy; to Sanjeev Ray and Foundation</span
+            >
+          </p>
+        </div>
+        <div class="footer__block--1">
+          <li class="footer__link">About Us</li>
+          <li class="footer__link">Careers</li>
+          <li class="footer__link">Contacts</li>
+        </div>
+      </ul>
     </footer>
-</body>
+  </body>
 </html>
