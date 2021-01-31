@@ -2,23 +2,27 @@ extends base
 
 block content
     .list__jobs
-        .job
-            h1.company__name ACCENTURE
-            .job__description
-            p.job__element
-                span.span__element position: 
-                | Full stack developer
-            p.job__element
-                span.span__element expiration: 
-                |  20 Feb 2021
-            p.job__element
-                span.span__element location: 
-                |  Mumbai
-            p.job__element.job__summary
-            span.span__element description: 
-            | Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem, placeat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, nobis!
-            .upload
-            form.job__form
-                label.span__element.form__label(for="resume") Upload Resume: 
-                input#resume.job__input(type="file" name="")
-            button.submit__btn submit
+        each job in jobs
+            -const date = new Date(Date.now() + job.expiry * 24 * 60 * 60 * 1000).toDateString();
+                .job
+                    h1.company__name #{job.companyName}
+                    .job__description
+                        p.job__element.span__position
+                            span.span__element position: 
+                            | #{job.position}
+                        p.job__element
+                            span.span__element expiration: 
+                            |  #{date}
+                        p.job__element
+                            span.span__element location: 
+                            |  #{job.locationName}
+                    p.job__element.job__summary
+                        span.span__element description: 
+                        | #{job.description}
+                    .upload
+                        form.job__form
+                            label.span__element.form__label(for='resume')
+                                | Upload Resume:
+                            input#resume.job__input(type='file' name='')
+                        button.submit__btn submit
+                    

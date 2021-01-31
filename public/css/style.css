@@ -231,6 +231,7 @@ body {
   padding: 1.5rem 0;
   margin: 0 auto;
   margin-top: -2px;
+  text-transform: uppercase;
   margin-bottom: 2rem;
   text-align: center;
   background-color: #444;
@@ -244,7 +245,9 @@ body {
 }
 
 .job__element {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+  text-transform: capitalize;
+  letter-spacing: 1px;
 }
 
 .span__element {
@@ -254,8 +257,14 @@ body {
   letter-spacing: 1px;
 }
 
+.span__position {
+  text-transform: uppercase;
+}
+
 .job__summary {
   margin-bottom: 1rem;
+  text-transform: lowercase;
+  letter-spacing: 1px;
 }
 
 .job__form {
@@ -472,4 +481,8 @@ input[type='file']::-webkit-file-upload-button:hover {
 .employer__label {
   width: 15%;
   display: inline-block;
+}
+
+.hidden {
+  display: none;
 }

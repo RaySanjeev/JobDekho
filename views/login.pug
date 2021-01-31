@@ -1,7 +1,7 @@
 extends base
 
 block content
-    .main
+    .main.login__page
         .login
             .login__heading
                 h1.heading LOGIN
@@ -9,7 +9,7 @@ block content
                 .login__form--input
                     label.login__label(for="otp") Your Email :
                     input.login__input(type="email" id= "email" name="email" placeholder="Your email")
-                    //- label.otp__label(for="otp") Enter OTP :
-                    //- input#otp.otp__input(type="text" name="otp" placeholder="****")
+                    label.otp__label.hidden(for="otp") Enter OTP :
+                    input#otp.otp__input.hidden(type="text" name="otp" placeholder="****")
                 button.login__btn.send__otp Send OTP
-                //- button.login__btn.submit__login Submit
+                button.login__btn.submit__login.hidden Submit

@@ -1,0 +1,16 @@
+extends base 
+
+block content 
+  .profile
+    h1.profile__heading Update Me
+    .profile__field
+      form.form--1
+        label.profile__label.login__label(for='name')
+          | Your Name:
+        input#name.profile__input(type='text' placeholder=`${user.name}`)
+        button.submit__btn Update
+      form.form--2
+        label.profile__label.login__label(for='email')
+          | Your Email:
+        input#email.profile__input.login__input(type='email' placeholder=`${user.email}`)
+        button.submit__btn Update

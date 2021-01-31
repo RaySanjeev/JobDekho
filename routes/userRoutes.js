@@ -7,7 +7,7 @@ const viewController = require('../controller/viewController');
 const router = express.Router();
 
 router.route('/sendOTP').post(authController.sendOTP);
-router.route('/login').post(authController.login, viewController.dashboard);
+router.route('/login').post(authController.login);
 router.route('/').post(userController.createUser);
 
 module.exports = router;

@@ -21,6 +21,7 @@ const userSchema = new mongoose.Schema({
     type: Number,
     select: false,
   },
+  resume: String,
 });
 
 const User = mongoose.model('User', userSchema);
