@@ -1,7 +1,10 @@
 nav.navbar
   ul.nav__list
     li.nav__item--link
-      a.nav__link.geo__jobs(href="#") NEARBY JOBS
+      if user.role === 'user'
+        a.nav__link.geo__jobs(href="#") NEARBY JOBS
+      else
+        a.nav__link.geo__jobs(href="#") VIEW APPLICANTS    
     li.nav_item
       img.nav__logo(src="/image/logo-white.png" alt="Brand-logo")
     .nav__buttons

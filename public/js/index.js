@@ -12,17 +12,11 @@ const loginInput = document.querySelector('.login__input');
 const otpLabel = document.querySelector('.otp__label');
 const otpInput = document.querySelector('.otp__input');
 
-const loginPage = document.querySelector('.login__page');
-const navBar = document.querySelector('.navbar');
 const profileBtn = document.querySelector('.nav__btn--1');
 const jobApply = document.querySelectorAll('.job__apply');
 const logoutBtn = document.querySelector('.nav__btn--2');
 
 const geoLocationBtn = document.querySelector('.geo__jobs');
-
-if (loginPage) {
-  navBar.classList.add('hidden');
-}
 
 if (logoutBtn) {
   logoutBtn.addEventListener('click', () => {

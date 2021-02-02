@@ -27,10 +27,15 @@ export const login = async (otp, email) => {
         email,
       },
     });
-
+    console.log(res.data.data.user.role);
     if (res.data.status === 'success') {
       window.alert('Logged In Successfully!');
-      window.location.assign('/userDashboard');
+
+      if (res.data.data.user.role === 'user') {
+        window.location.assign('/userDashboard');
+      } else {
+        window.location.assign('/employerDashboard');
+      }
     }
   } catch (err) {
     console.log(err.response);

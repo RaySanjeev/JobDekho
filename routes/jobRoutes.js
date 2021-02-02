@@ -5,7 +5,13 @@ const authController = require('../controller/authController');
 const viewController = require('../controller/viewController');
 const router = express.Router();
 
-router.route('/').post(jobController.createJob);
+router
+  .route('/createJob')
+  .post(
+    authController.protect,
+    jobController.createJob,
+    viewController.renderEmployer
+  );
 
 router
   .route('/:lat/:lng')

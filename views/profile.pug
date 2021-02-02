@@ -14,8 +14,10 @@ block content
           | Your Email:
         input#email.profile__input.login__input(type='email' placeholder=`${user.email}` name='email')
         input.submit__btn(type='submit' value='Update')
+    if user.role === 'user'
       form(action="/api/v1/users/updateResume" method='post' enctype="multipart/form-data")
         label.profile__label.login__label.resume__label(for='resume')
           | Resume:
         input#resume.profile__input.login__input.resume__input(type='file' name='resume' )
         input.submit__btn(type='submit' value='Update')
+

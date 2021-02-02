@@ -1,0 +1,27 @@
+extends base
+
+block content 
+  .employer__main
+    h1.job__create Create job
+    form.employer__form--full(action="/api/v1/jobs/createJob" method='post')
+      .employer__form
+        label.profile__label.login__label.employer__label(for='name')
+          | Company Name:
+        input#name.profile__input.employer__input(type='text' placeholder='ex: JobDekho' name='companyName' required)
+      .employer__form
+        label.profile__label.login__label.employer__label(for='position')
+          | Position:
+        input#position.profile__input.employer__input(placeholder='ex: Web Developer' type='text' name='position' required)
+      .employer__form
+        label.profile__label.login__label.employer__label(for='location')
+          | Location:
+        input#location.profile__input.employer__input(placeholder='ex: Pune' type='text' name='locationName' required)
+      .employer__form
+        label.profile__label.login__label.employer__label(for='date')
+          | Expired At:
+        input#date.profile__input.employer__input(placeholder='ex: 10 days (In Days)' type='number' name='expiry' required)
+      .employer__form
+        label.profile__label.login__label.employer__label(for='description')
+          | Description:
+        textarea#description.profile__input.employer__input(cols='60' rows='10' name='description' required)
+      input.submit__btn.employer__submit(type='submit', value='Submit')

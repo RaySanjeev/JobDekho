@@ -13,8 +13,17 @@ exports.renderUser = catchAsync(async (req, res) => {
   res.status(200).render('user', {
     title: 'userDashboard',
     jobs,
+    user: req.user,
   });
 });
+
+exports.renderEmployer = async (req, res) => {
+  console.log('afkbakbfkjb');
+  res.status(200).render('employer', {
+    title: 'employerDashboard',
+    user: req.user,
+  });
+};
 
 exports.renderUserProfile = catchAsync(async (req, res) => {
   const user = await User.findById(req.user._id);

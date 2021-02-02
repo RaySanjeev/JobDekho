@@ -20,7 +20,7 @@ body {
   margin: 3rem;
 }
 .main {
-  height: 90vh;
+  min-height: 80vh;
   width: 100%;
   background-color: #f1ebeb;
   display: flex;
@@ -165,6 +165,7 @@ body {
 
 .nav__item--link {
   transition: all 0.2s;
+  margin-right: 3rem;
   backface-visibility: hidden;
 }
 .nav__item--link:hover {
@@ -425,7 +426,7 @@ input[type='file']::-webkit-file-upload-button:hover {
 }
 
 .resume__input {
-  width: 48%;
+  width: 24%;
 }
 
 .profile__input:focus {
@@ -455,7 +456,7 @@ input[type='file']::-webkit-file-upload-button:hover {
 //////////////////////////////////////////////////////////////////////*/
 
 .employer__main {
-  height: 90vh;
+  min-height: 90vh;
   background-color: #f7f7f7;
   padding: 3rem 7rem;
 }

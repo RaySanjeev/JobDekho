@@ -8480,26 +8480,32 @@ var login = /*#__PURE__*/function () {
 
           case 3:
             res = _context2.sent;
+            console.log(res.data.data.user.role);
 
             if (res.data.status === 'success') {
               window.alert('Logged In Successfully!');
-              window.location.assign('/userDashboard');
+
+              if (res.data.data.user.role === 'user') {
+                window.location.assign('/userDashboard');
+              } else {
+                window.location.assign('/employerDashboard');
+              }
             }
 
-            _context2.next = 10;
+            _context2.next = 11;
             break;
 
-          case 7:
-            _context2.prev = 7;
+          case 8:
+            _context2.prev = 8;
             _context2.t0 = _context2["catch"](0);
             console.log(_context2.t0.response);
 
-          case 10:
+          case 11:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[0, 7]]);
+    }, _callee2, null, [[0, 8]]);
   }));
 
   return function login(_x2, _x3) {
@@ -9057,16 +9063,10 @@ var loginLabel = document.querySelector('.login__label');
 var loginInput = document.querySelector('.login__input');
 var otpLabel = document.querySelector('.otp__label');
 var otpInput = document.querySelector('.otp__input');
-var loginPage = document.querySelector('.login__page');
-var navBar = document.querySelector('.navbar');
 var profileBtn = document.querySelector('.nav__btn--1');
 var jobApply = document.querySelectorAll('.job__apply');
 var logoutBtn = document.querySelector('.nav__btn--2');
 var geoLocationBtn = document.querySelector('.geo__jobs');
-
-if (loginPage) {
-  navBar.classList.add('hidden');
-}
 
 if (logoutBtn) {
   logoutBtn.addEventListener('click', function () {
@@ -9162,7 +9162,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53959" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53195" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

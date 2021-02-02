@@ -1,15 +1,39 @@
-extends base
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet" href="/css/style.css")
+        link(rel="preconnect" href="https://fonts.gstatic.com")
+        link(href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet")
+        title JobDekho | #{title}
+    body
+        nav.navbar
+            ul.nav__list
+                .nav__buttons
+                    li.nav__item--link
+                        a.nav__link(href="#") WELCOME
+                    li.nav__item--link
+                        a.nav__link(href="#") ABOUT US
+                li.nav_item
+                    img.nav__logo(src="/image/logo-white.png" alt="Brand-logo")
+                .nav__buttons
+                    li.nav__item--link
+                        a.nav__link(href="#") CAREERS
+                    li.nav__item--link
+                        a.nav__link(href="#") CONTACT US
+        .main.login__page
+            .login
+                .login__heading
+                    h1.heading LOGIN
+                form.login__form(action="#")
+                    .login__form--input
+                        label.login__label(for="otp") Your Email :
+                        input.login__input(type="email" id= "email" name="email" placeholder="Your email")
+                        label.otp__label.hidden(for="otp") Enter OTP :
+                        input#otp.otp__input.hidden(type="text" name="otp" placeholder="****")
+                    button.login__btn.send__otp Send OTP
+                    button.login__btn.submit__login.hidden Submit
+        //- include _footer
+    script(src="/js/bundle.js")    
 
-block content
-    .main.login__page
-        .login
-            .login__heading
-                h1.heading LOGIN
-            form.login__form(action="#")
-                .login__form--input
-                    label.login__label(for="otp") Your Email :
-                    input.login__input(type="email" id= "email" name="email" placeholder="Your email")
-                    label.otp__label.hidden(for="otp") Enter OTP :
-                    input#otp.otp__input.hidden(type="text" name="otp" placeholder="****")
-                button.login__btn.send__otp Send OTP
-                button.login__btn.submit__login.hidden Submit
+

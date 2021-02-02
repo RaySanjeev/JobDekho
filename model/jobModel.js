@@ -16,24 +16,30 @@ const jobSchema = new mongoose.Schema({
       ref: 'User',
     },
   ],
-  location: {
-    type: {
-      type: String,
-      enum: ['Point'],
-      required: [true, 'Please provide the Point feild'],
-    },
-    coordinates: {
-      type: [Number],
-      required: [true, 'Please provide the coordinates of the place'],
-    },
+  // location: {
+  //   type: {
+  //     type: String,
+  //     enum: ['Point'],
+  //     required: [true, 'Please provide the Point feild'],
+  //   },
+  //   coordinates: {
+  //     type: [Number],
+  //     required: [true, 'Please provide the coordinates of the place'],
+  //   },
+  // },
+  expiry: {
+    type: Number,
+    required: [true, 'Please provide the expiration date'],
   },
-  expiry: Number,
   description: {
     type: String,
     required: [true, 'Plese provide the job description'],
     trim: true,
   },
-  locationName: String,
+  locationName: {
+    type: String,
+    required: [true, 'Please provide the location'],
+  },
 });
 
 const Job = mongoose.model('Job', jobSchema);
