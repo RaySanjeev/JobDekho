@@ -1,5 +1,6 @@
 const catchAsync = require('../utils/catchAsync');
 const Job = require('../model/jobModel');
+const User = require('../model/userModel');
 
 exports.renderLogin = (req, res) => {
   res.status(200).render('login', {
@@ -9,18 +10,16 @@ exports.renderLogin = (req, res) => {
 
 exports.renderUser = catchAsync(async (req, res) => {
   const jobs = await Job.find();
-
   res.status(200).render('user', {
     title: 'userDashboard',
     jobs,
   });
 });
 
-exports.renderUserProfile = (req, res) => {
-  console.log(req.user);
-
+exports.renderUserProfile = catchAsync(async (req, res) => {
+  const user = await User.findById(req.user._id);
   res.status(200).render('profile', {
     title: 'Profile',
-    user: req.user,
+    user,
   });
-};
+});

@@ -4,13 +4,18 @@ block content
   .profile
     h1.profile__heading Update Me
     .profile__field
-      form.form--1
+      form.form--1(action="/api/v1/users/updateName" method='POST')
         label.profile__label.login__label(for='name')
           | Your Name:
-        input#name.profile__input(type='text' placeholder=`${user.name}`)
-        button.submit__btn Update
-      form.form--2
-        label.profile__label.login__label(for='email')
+        input#name.profile__input( type='text' placeholder=`${user.name}` name='name')
+        input.submit__btn(type='submit' value='Update')
+      form.form--2(action="/api/v1/users/updateEmail" method='POST')
+        label.login__label(for='email')
           | Your Email:
-        input#email.profile__input.login__input(type='email' placeholder=`${user.email}`)
-        button.submit__btn Update
+        input#email.profile__input.login__input(type='email' placeholder=`${user.email}` name='email')
+        input.submit__btn(type='submit' value='Update')
+      form(action="/api/v1/users/updateResume" method='post' enctype="multipart/form-data")
+        label.profile__label.login__label.resume__label(for='resume')
+          | Resume:
+        input#resume.profile__input.login__input.resume__input(type='file' name='resume' )
+        input.submit__btn(type='submit' value='Update')

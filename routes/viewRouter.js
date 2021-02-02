@@ -7,7 +7,7 @@ const router = express.Router();
 router.route('/login').get(viewController.renderLogin);
 router.route('/userDashboard').get(viewController.renderUser);
 router
-  .route('/profile')
+  .route('/userDashboard/profile')
   .get(authController.protect, viewController.renderUserProfile);
 
 module.exports = router;

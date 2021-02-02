@@ -4,7 +4,7 @@ block content
     .list__jobs
         each job in jobs
             -const date = new Date(Date.now() + job.expiry * 24 * 60 * 60 * 1000).toDateString();
-                .job
+                .job(data-job-id = `${job._id}`)
                     h1.company__name #{job.companyName}
                     .job__description
                         p.job__element.span__position
@@ -20,9 +20,9 @@ block content
                         span.span__element description: 
                         | #{job.description}
                     .upload
-                        form.job__form
+                        form.job__form(action="/profile" method="post" enctype="multipart/form-data")
                             label.span__element.form__label(for='resume')
                                 | Upload Resume:
-                            input#resume.job__input(type='file' name='')
-                        button.submit__btn submit
+                            input#resume.job__input(type='file' name='resume')
+                        button.submit__btn.job__apply submit
                     
