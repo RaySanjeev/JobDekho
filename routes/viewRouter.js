@@ -2,6 +2,7 @@ const express = require('express');
 
 const viewController = require('../controller/viewController');
 const authController = require('../controller/authController');
+const jobController = require('../controller/jobController');
 const router = express.Router();
 
 router.route('/login').get(viewController.renderLogin);
@@ -17,4 +18,11 @@ router
   .route('/userDashboard/profile')
   .get(authController.protect, viewController.renderUserProfile);
 
+router
+  .route('/applicants')
+  .get(
+    authController.protect,
+    jobController.getAllJobs,
+    viewController.renderApplicants
+  );
 module.exports = router;

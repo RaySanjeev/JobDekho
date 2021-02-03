@@ -3,7 +3,20 @@ const catchAsync = require('../utils/catchAsync');
 const appError = require('../utils/appError');
 
 exports.createJob = catchAsync(async (req, res, next) => {
+  req.body.employer = req.user._id;
   const job = await Job.create(req.body);
+});
+
+exports.getAllJobs = catchAsync(async (req, res, next) => {
+  const jobs = await Job.find({ employer: req.user._id });
+  const jobCandidates = [];
+  jobs.forEach((el) => {
+    jobCandidates.push(el.candidates);
+  });
+  req.jobs = jobs;
+  req.jobCandidates = jobCandidates;
+
+  next();
 });
 
 exports.addUser = catchAsync(async (req, res, next) => {

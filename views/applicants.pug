@@ -1,0 +1,51 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="/css/style.css")
+    link(rel="preconnect" href="https://fonts.gstatic.com")
+    link(href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet")
+    title JobDekho | #{title}
+  body
+    
+    nav.navbar
+      ul.nav__list
+        li.nav__item--link
+          a.nav__link.geo__jobs(href="http://127.0.0.1:3000/employerDashboard") &larr; CREATE JOB
+        li.nav_item
+          img.nav__logo(src="/image/logo-white.png" alt="Brand-logo")
+        .nav__buttons
+          li.nav__item
+            button.nav__btn.nav__btn--1 PROFILE
+          li.nav__item
+            button.nav__btn.nav__btn--2 LOGOUT
+
+    // Content 
+    - let i = 0;
+    .main__applicants
+      .applicant__sidebar
+        each job in jobs
+          .post( data-post-number = `${i++}`)
+            button.post__name #{job.position}
+      .applicant__content
+        h1.applicant__content--heading Candidates
+        - i = 0;
+        each candidates in jobCandidates
+          .block.visibility(class='candidates__block--' + i++)
+            each candidate in candidates
+              .applicant__user
+                p.applicant__name
+                  span.bullet__span
+                  |  #{candidate.name}
+                p.applicant__email #{candidate.email}
+                a.applicant__resume(href=`/public/resume/${candidate.resume}` download='user.pdf') download resume
+
+
+    // Footer
+    include _footer
+
+  script(src="/js/bundle.js")
+
+block content 
+  

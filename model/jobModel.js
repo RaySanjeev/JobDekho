@@ -27,6 +27,7 @@ const jobSchema = new mongoose.Schema({
   //     required: [true, 'Please provide the coordinates of the place'],
   //   },
   // },
+  employer: String,
   expiry: {
     type: Number,
     required: [true, 'Please provide the expiration date'],
@@ -40,6 +41,14 @@ const jobSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please provide the location'],
   },
+});
+
+jobSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'candidates',
+    select: 'name email resume',
+  });
+  next();
 });
 
 const Job = mongoose.model('Job', jobSchema);

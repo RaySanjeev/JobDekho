@@ -48,15 +48,7 @@ const upload = multer({
 });
 
 exports.checkMultipleUploads = catchAsync(async (req, res, next) => {
-  // if (req.user.resume) {
-  //   const userId = req.user.resume.split('-')[1];
-
-  //   if (userId === String(req.user._id)) {
-  //     return next(new AppError('Resume Already uploaded', 400));
-  //   }
-  // }
   rewriteResume(req);
-
   next();
 });
 

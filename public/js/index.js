@@ -16,6 +16,10 @@ const profileBtn = document.querySelector('.nav__btn--1');
 const jobApply = document.querySelectorAll('.job__apply');
 const logoutBtn = document.querySelector('.nav__btn--2');
 
+const tabButton = document.querySelectorAll('.post__name');
+const tabBlock = document.querySelectorAll('.block');
+const applicantsPage = document.querySelector('.main__applicants');
+
 const geoLocationBtn = document.querySelector('.geo__jobs');
 
 if (logoutBtn) {
@@ -90,3 +94,31 @@ if (jobApply) {
 //     getGeoLocation();
 //   });
 // }
+
+if (applicantsPage) {
+  window.addEventListener('load', () => {
+    console.log('kfjkjsfkj');
+    document
+      .querySelector(`.candidates__block--0`)
+      .classList.remove('hidden', 'visibility');
+
+    tabButton[0].style.backgroundColor = 'rgb(236, 79, 22)';
+  });
+}
+
+if (tabButton) {
+  tabButton.forEach((el) => {
+    el.addEventListener('click', () => {
+      tabButton.forEach((el) => (el.style.backgroundColor = `transparent`));
+      el.style.backgroundColor = 'rgb(236, 79, 22)';
+      tabBlock.forEach((el) => {
+        el.classList.add('visibility', 'hidden');
+      });
+      const postNumber = el.closest('.post').dataset.postNumber;
+      console.log(postNumber);
+      document
+        .querySelector(`.candidates__block--${postNumber}`)
+        .classList.remove('visibility', 'hidden');
+    });
+  });
+}

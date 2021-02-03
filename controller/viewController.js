@@ -18,7 +18,6 @@ exports.renderUser = catchAsync(async (req, res) => {
 });
 
 exports.renderEmployer = async (req, res) => {
-  console.log('afkbakbfkjb');
   res.status(200).render('employer', {
     title: 'employerDashboard',
     user: req.user,
@@ -32,3 +31,11 @@ exports.renderUserProfile = catchAsync(async (req, res) => {
     user,
   });
 });
+
+exports.renderApplicants = (req, res) => {
+  res.status(200).render('applicants', {
+    title: 'APPLICANTS',
+    jobs: req.jobs,
+    jobCandidates: req.jobCandidates,
+  });
+};
