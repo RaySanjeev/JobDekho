@@ -5,6 +5,7 @@ const appError = require('../utils/appError');
 exports.createJob = catchAsync(async (req, res, next) => {
   req.body.employer = req.user._id;
   const job = await Job.create(req.body);
+  next();
 });
 
 exports.getAllJobs = catchAsync(async (req, res, next) => {
@@ -23,7 +24,7 @@ exports.addUser = catchAsync(async (req, res, next) => {
   const jobDB = await Job.findById(req.body.jobId);
   let state;
   jobDB.candidates.forEach((el) => {
-    if (String(el) === String(req.user._id)) state = true;
+    if (String(el._id) === String(req.user._id)) state = true;
   });
   if (state) {
     return next(new appError('You have already applied once', 400));
@@ -41,8 +42,9 @@ exports.addUser = catchAsync(async (req, res, next) => {
 
 exports.getNearByJobs = catchAsync(async (req, res, next) => {
   const { lat, lng } = req.params;
-  const radius = 200 / 6378.1;
-  console.log(radius);
+  // const radius = 200 / 6378.1;
+  // console.log(radius);
+  console.log(lat, lng);
   if (!lat || !lng) {
     next(
       new AppError(
@@ -52,7 +54,13 @@ exports.getNearByJobs = catchAsync(async (req, res, next) => {
     );
   }
   const jobs = await Job.find({
-    location: { $geoWithin: { $centerSphere: [[lng, lat], radius] } },
+    location: {
+      $near: {
+        $maxDistance: 1000,
+        $geometry: { type: 'Point', coordinates: [lat, lng] },
+      },
+    },
   });
   req.jobs = jobs;
+  next();
 });

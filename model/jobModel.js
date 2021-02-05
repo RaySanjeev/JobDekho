@@ -20,6 +20,7 @@ const jobSchema = new mongoose.Schema({
   //   type: {
   //     type: String,
   //     enum: ['Point'],
+  //     default: 'Point',
   //     required: [true, 'Please provide the Point feild'],
   //   },
   //   coordinates: {
@@ -51,6 +52,7 @@ jobSchema.pre(/^find/, function (next) {
   next();
 });
 
+jobSchema.index({ location: '2dsphere' });
 const Job = mongoose.model('Job', jobSchema);
 
 module.exports = Job;

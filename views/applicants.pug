@@ -12,7 +12,7 @@ html(lang="en")
     nav.navbar
       ul.nav__list
         li.nav__item--link
-          a.nav__link.geo__jobs(href="http://127.0.0.1:3000/employerDashboard") &larr; CREATE JOB
+          a.nav__link(href="http://127.0.0.1:3000/employerDashboard") &larr; CREATE JOB
         li.nav_item
           img.nav__logo(src="/image/logo-white.png" alt="Brand-logo")
         .nav__buttons
@@ -39,7 +39,7 @@ html(lang="en")
                   span.bullet__span
                   |  #{candidate.name}
                 p.applicant__email #{candidate.email}
-                a.applicant__resume(href=`/public/resume/${candidate.resume}` download='user.pdf') download resume
+                a.applicant__resume(href=`/resume/${candidate.resume}` download='user.pdf') download resume
 
 
     // Footer

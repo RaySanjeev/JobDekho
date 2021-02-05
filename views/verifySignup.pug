@@ -1,0 +1,18 @@
+.signup.signup__verify
+  .signup__heading
+    h1.heading.heading__signup VERIFY OTP
+  form.signup__form(action="")
+    .signup__form--input.signup__form--verify
+      .verify__element
+        p.verify.verify__label Your Name: 
+        p.verify.para__name #{user.name}
+      .verify__element
+        p.verify.verify__label Your Email:
+        p.verify.para__email #{user.email}
+      .verify__element
+        p.verify.verify__label Your Role:
+        p.verify.para__role #{user.role} 
+      .signup__enterOtp.verify__element
+        label.otp__label.verify__label(for="otp") Enter OTP :
+        input#otp.otp__input.verify__input(type="text" name="otp" placeholder="****")
+  btn.login__btn#verify__gmail.verify__btn Submit

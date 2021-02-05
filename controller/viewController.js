@@ -8,8 +8,30 @@ exports.renderLogin = (req, res) => {
   });
 };
 
+exports.renderSignup = (req, res) => {
+  res.status(200).render('signup', {
+    title: 'SIGNUP',
+  });
+};
+
+exports.renderVerifySignup = (req, res, next) => {
+  res.status(200).render('verifySignup', {
+    status: 'success',
+    title: 'CREATE',
+    user: req.user,
+  });
+};
+
 exports.renderUser = catchAsync(async (req, res) => {
-  const jobs = await Job.find();
+  let jobs;
+  if (req.jobs) {
+    jobs = req.jobs;
+    console.log('fnkfafakafahfkafkll');
+  } else {
+    jobs = await Job.find();
+  }
+
+  console.log('viewCOntroller');
   res.status(200).render('user', {
     title: 'userDashboard',
     jobs,

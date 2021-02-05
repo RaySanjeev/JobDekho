@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { showAlert } from './alert';
 
 export const renderProfile = async () => {
   try {
@@ -41,9 +42,9 @@ export const updateResumeField = async (jobId) => {
       },
     });
     if (res.data.status === 'success') {
-      alert('Congratulations!! successfully applied');
+      showAlert('success', 'Congratulations!! successfully applied');
     }
   } catch (err) {
-    window.alert(err.response.data.message);
+    showAlert('error', err.response.data.message);
   }
 };

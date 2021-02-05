@@ -10,6 +10,15 @@ router.route('/sendOTP').post(authController.sendOTP);
 router.route('/login').post(authController.login);
 router.route('/logout').get(authController.logout);
 router.route('/').post(userController.createUser);
+
+router
+  .route('/signupOTP')
+  .post(
+    userController.createUser,
+    authController.sendOTP,
+    viewController.renderVerifySignup
+  );
+
 router
   .route('/updateName')
   .post(

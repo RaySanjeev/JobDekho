@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { showAlert } from './alert';
 
 export const sendOTP = async (email) => {
   try {
@@ -10,14 +11,33 @@ export const sendOTP = async (email) => {
       },
     });
     if (res.data.status === 'success') {
-      window.alert('OTP sent successfully.');
+      showAlert('success', 'OTP sent successfully');
     }
+  } catch (err) {
+    window.alert(err.response.data.message);
+  }
+};
+
+export const signupOTP = async (email, name, role) => {
+  try {
+    const res = await axios({
+      method: 'POST',
+      url: 'http://127.0.0.1:3000/api/v1/users/signupOTP',
+      data: {
+        email,
+        role,
+        name,
+        signup: true,
+      },
+    });
+    return res;
   } catch (err) {
     console.log(err.response);
   }
 };
 
 export const login = async (otp, email) => {
+  console.log('sfsndfkj');
   try {
     const res = await axios({
       method: 'POST',
@@ -29,7 +49,7 @@ export const login = async (otp, email) => {
     });
     console.log(res.data.data.user.role);
     if (res.data.status === 'success') {
-      window.alert('Logged In Successfully!');
+      showAlert('success', 'Logged In Successfully');
 
       if (res.data.data.user.role === 'user') {
         window.location.assign('/userDashboard');
@@ -50,6 +70,7 @@ export const logout = async () => {
     });
     if (res.data.status === 'success') {
       window.location.assign('/login');
+      showAlert('success', 'Logged Out Successfully');
     }
   } catch (err) {
     console.log(err);

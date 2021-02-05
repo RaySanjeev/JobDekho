@@ -1,8 +1,9 @@
 /* eslint-disable */
 import '@babel/polyfill';
-import { sendOTP, login, logout } from './login';
+import { sendOTP, login, logout, signupOTP } from './login';
 import { renderProfile, uploadResume, updateResumeField } from './submitForms';
 import { getGeoLocation } from './geoLocation';
+import { showAalert, showAlert } from './alert';
 
 // DOM ELEMENTS
 const sendOTPBtn = document.querySelector('.send__otp');
@@ -15,6 +16,10 @@ const otpInput = document.querySelector('.otp__input');
 const profileBtn = document.querySelector('.nav__btn--1');
 const jobApply = document.querySelectorAll('.job__apply');
 const logoutBtn = document.querySelector('.nav__btn--2');
+
+const signup = document.querySelector('.signup');
+const signupPage = document.querySelector('.signup__page');
+const signupSendOtpBtn = document.querySelector('.signup__sendOtp');
 
 const tabButton = document.querySelectorAll('.post__name');
 const tabBlock = document.querySelectorAll('.block');
@@ -81,23 +86,22 @@ if (jobApply) {
       console.log(count);
       if (Number(count) === 1) {
         el.closest('.list__jobs').classList.add('slide__right');
-        window.alert('You have applied in all jobs. Try again tomorrow');
+        showAalert('error', 'You have applied in all jobs. Try again tomorrow');
       }
       el.closest('.job').classList.add('slide__right');
     });
   });
 }
 
-// if (geoLocationBtn) {
-//   geoLocationBtn.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     getGeoLocation();
-//   });
-// }
+if (geoLocationBtn) {
+  geoLocationBtn.addEventListener('click', async (e) => {
+    e.preventDefault();
+    getGeoLocation();
+  });
+}
 
 if (applicantsPage) {
   window.addEventListener('load', () => {
-    console.log('kfjkjsfkj');
     document
       .querySelector(`.candidates__block--0`)
       .classList.remove('hidden', 'visibility');
@@ -122,3 +126,29 @@ if (tabButton) {
     });
   });
 }
+
+if (signup) {
+  signupSendOtpBtn.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const name = document.getElementById('name').value;
+    const role = document.getElementById('role').value;
+
+    const res = await signupOTP(email, name, role);
+    if (res.status === 200) {
+      signupPage.innerHTML = '';
+      const html = res.data;
+      console.log(html);
+      signupPage.insertAdjacentHTML('afterbegin', html);
+    }
+  });
+}
+
+document.addEventListener('click', function (e) {
+  if (e.target && e.target.id === 'verify__gmail') {
+    const otp = document.querySelector('.verify__input').value;
+    const email = document.querySelector('.para__email').textContent;
+    console.log(otp, email);
+    login(otp, email);
+  }
+});

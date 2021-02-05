@@ -36,14 +36,14 @@ const createSendToken = function (user, statusCode, req, res) {
 };
 
 exports.sendOTP = catchAsync(async (req, res, next) => {
-  const { email } = req.body;
-
-  if (!email) {
-    next(new appError('Please provide email.', 400));
-  }
+  const { email, name, role, signup } = req.body;
 
   const randomNumber = Math.trunc(Math.random() * 1000000);
   const timeStamp = Date.now() + 10 * 24 * 60 * 60 * 1000;
+
+  if (!email) {
+    return next(new appError('Please provide email.', 400));
+  }
 
   const user = await User.findOneAndUpdate(
     { email },
@@ -53,12 +53,20 @@ exports.sendOTP = catchAsync(async (req, res, next) => {
     }
   );
 
+  if (!user) {
+    return next(new appError('No user account found. Please sign up!', 400));
+  }
+
   new Email(user, randomNumber).sendOTP();
 
-  res.status(200).json({
-    status: 'success',
-    message: 'OTP sent successfully',
-  });
+  if (!signup) {
+    res.status(200).json({
+      status: 'success',
+      message: 'OTP sent successfully',
+    });
+  } else {
+    next();
+  }
 });
 
 exports.login = catchAsync(async (req, res, next) => {
@@ -116,14 +124,6 @@ exports.protect = catchAsync(async (req, res, next) => {
       )
     );
   }
-
-  // // 4) Check if user changed password after the token was issued
-  // if (currentUser.changedPasswordAfter(decoded.iat)) {
-  //   return next(
-  //     new AppError('User recently changed password! Please log in again.', 401)
-  //   );
-  // }
-
   // GRANT ACCESS TO PROTECTED ROUTE
   req.user = currentUser;
   next();

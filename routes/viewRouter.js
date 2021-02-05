@@ -6,6 +6,11 @@ const jobController = require('../controller/jobController');
 const router = express.Router();
 
 router.route('/login').get(viewController.renderLogin);
+
+router.route('/signup').get(viewController.renderSignup);
+
+router.route('/verify').get(viewController.renderVerifySignup);
+
 router
   .route('/userDashboard')
   .get(authController.protect, viewController.renderUser);
