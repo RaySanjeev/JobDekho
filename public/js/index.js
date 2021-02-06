@@ -83,7 +83,6 @@ if (jobApply) {
       uploadResume(form);
 
       const count = el.closest('.list__jobs').childElementCount;
-      console.log(count);
       if (Number(count) === 1) {
         el.closest('.list__jobs').classList.add('slide__right');
         showAalert('error', 'You have applied in all jobs. Try again tomorrow');
@@ -119,7 +118,6 @@ if (tabButton) {
         el.classList.add('visibility', 'hidden');
       });
       const postNumber = el.closest('.post').dataset.postNumber;
-      console.log(postNumber);
       document
         .querySelector(`.candidates__block--${postNumber}`)
         .classList.remove('visibility', 'hidden');
@@ -138,7 +136,6 @@ if (signup) {
     if (res.status === 200) {
       signupPage.innerHTML = '';
       const html = res.data;
-      console.log(html);
       signupPage.insertAdjacentHTML('afterbegin', html);
     }
   });
@@ -148,7 +145,6 @@ document.addEventListener('click', function (e) {
   if (e.target && e.target.id === 'verify__gmail') {
     const otp = document.querySelector('.verify__input').value;
     const email = document.querySelector('.para__email').textContent;
-    console.log(otp, email);
     login(otp, email);
   }
 });

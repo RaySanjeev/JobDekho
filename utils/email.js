@@ -32,7 +32,6 @@ module.exports = class Email {
       text: htmlToText.fromString(html),
     };
     mg.messages().send(mailOptions, function (error, body) {
-      console.log(body);
       console.log('OTP sent successfully!!');
     });
   }

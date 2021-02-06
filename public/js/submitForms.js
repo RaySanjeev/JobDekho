@@ -20,9 +20,7 @@ export const uploadResume = async (data) => {
       url: 'http://127.0.0.1:3000/api/v1/users/uploadResume',
       data,
     });
-    console.log(res.data);
     if (res.data.status === 'success') {
-      console.log('resume uploaded');
     }
     if (res.data.status === 'fail') {
       console.log(res.data.message);

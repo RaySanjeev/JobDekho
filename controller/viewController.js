@@ -26,12 +26,10 @@ exports.renderUser = catchAsync(async (req, res) => {
   let jobs;
   if (req.jobs) {
     jobs = req.jobs;
-    console.log('fnkfafakafahfkafkll');
   } else {
     jobs = await Job.find();
   }
 
-  console.log('viewCOntroller');
   res.status(200).render('user', {
     title: 'userDashboard',
     jobs,

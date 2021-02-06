@@ -42,9 +42,6 @@ exports.addUser = catchAsync(async (req, res, next) => {
 
 exports.getNearByJobs = catchAsync(async (req, res, next) => {
   const { lat, lng } = req.params;
-  // const radius = 200 / 6378.1;
-  // console.log(radius);
-  console.log(lat, lng);
   if (!lat || !lng) {
     next(
       new AppError(

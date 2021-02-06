@@ -37,7 +37,6 @@ export const signupOTP = async (email, name, role) => {
 };
 
 export const login = async (otp, email) => {
-  console.log('sfsndfkj');
   try {
     const res = await axios({
       method: 'POST',
@@ -47,7 +46,6 @@ export const login = async (otp, email) => {
         email,
       },
     });
-    console.log(res.data.data.user.role);
     if (res.data.status === 'success') {
       showAlert('success', 'Logged In Successfully');
 

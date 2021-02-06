@@ -8538,9 +8538,8 @@ var login = /*#__PURE__*/function () {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            console.log('sfsndfkj');
-            _context3.prev = 1;
-            _context3.next = 4;
+            _context3.prev = 0;
+            _context3.next = 3;
             return (0, _axios.default)({
               method: 'POST',
               url: 'http://127.0.0.1:3000/api/v1/users/login',
@@ -8550,9 +8549,8 @@ var login = /*#__PURE__*/function () {
               }
             });
 
-          case 4:
+          case 3:
             res = _context3.sent;
-            console.log(res.data.data.user.role);
 
             if (res.data.status === 'success') {
               (0, _alert.showAlert)('success', 'Logged In Successfully');
@@ -8564,20 +8562,20 @@ var login = /*#__PURE__*/function () {
               }
             }
 
-            _context3.next = 12;
+            _context3.next = 10;
             break;
 
-          case 9:
-            _context3.prev = 9;
-            _context3.t0 = _context3["catch"](1);
+          case 7:
+            _context3.prev = 7;
+            _context3.t0 = _context3["catch"](0);
             console.log(_context3.t0.response);
 
-          case 12:
+          case 10:
           case "end":
             return _context3.stop();
         }
       }
-    }, _callee3, null, [[1, 9]]);
+    }, _callee3, null, [[0, 7]]);
   }));
 
   return function login(_x5, _x6) {
@@ -8706,30 +8704,27 @@ var uploadResume = /*#__PURE__*/function () {
 
           case 3:
             res = _context2.sent;
-            console.log(res.data);
 
-            if (res.data.status === 'success') {
-              console.log('resume uploaded');
-            }
+            if (res.data.status === 'success') {}
 
             if (res.data.status === 'fail') {
               console.log(res.data.message);
             }
 
-            _context2.next = 12;
+            _context2.next = 11;
             break;
 
-          case 9:
-            _context2.prev = 9;
+          case 8:
+            _context2.prev = 8;
             _context2.t0 = _context2["catch"](0);
             console.log(_context2.t0.response.data.message);
 
-          case 12:
+          case 11:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[0, 9]]);
+    }, _callee2, null, [[0, 8]]);
   }));
 
   return function uploadResume(_x) {
@@ -8813,14 +8808,13 @@ var success = /*#__PURE__*/function () {
             _context.prev = 0;
             latitude = position.coords.latitude;
             longitude = position.coords.longitude;
-            console.log(latitude, longitude);
-            _context.next = 6;
+            _context.next = 5;
             return (0, _axios.default)({
               method: 'GET',
               url: "http://127.0.0.1:3000/api/v1/jobs/".concat(latitude, "/").concat(longitude)
             });
 
-          case 6:
+          case 5:
             res = _context.sent;
 
             if (res.status === 200) {
@@ -8835,20 +8829,20 @@ var success = /*#__PURE__*/function () {
               anchorTag.classList.add('all__jobs');
             }
 
-            _context.next = 13;
+            _context.next = 12;
             break;
 
-          case 10:
-            _context.prev = 10;
+          case 9:
+            _context.prev = 9;
             _context.t0 = _context["catch"](0);
             console.log(_context.t0);
 
-          case 13:
+          case 12:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 10]]);
+    }, _callee, null, [[0, 9]]);
   }));
 
   return function success(_x) {
@@ -9226,7 +9220,6 @@ if (jobApply) {
       (0, _submitForms.updateResumeField)(jobId);
       (0, _submitForms.uploadResume)(form);
       var count = el.closest('.list__jobs').childElementCount;
-      console.log(count);
 
       if (Number(count) === 1) {
         el.closest('.list__jobs').classList.add('slide__right');
@@ -9280,7 +9273,6 @@ if (tabButton) {
         el.classList.add('visibility', 'hidden');
       });
       var postNumber = el.closest('.post').dataset.postNumber;
-      console.log(postNumber);
       document.querySelector(".candidates__block--".concat(postNumber)).classList.remove('visibility', 'hidden');
     });
   });
@@ -9307,7 +9299,6 @@ if (signup) {
               if (res.status === 200) {
                 signupPage.innerHTML = '';
                 html = res.data;
-                console.log(html);
                 signupPage.insertAdjacentHTML('afterbegin', html);
               }
 
@@ -9329,7 +9320,6 @@ document.addEventListener('click', function (e) {
   if (e.target && e.target.id === 'verify__gmail') {
     var otp = document.querySelector('.verify__input').value;
     var email = document.querySelector('.para__email').textContent;
-    console.log(otp, email);
     (0, _login.login)(otp, email);
   }
 });
@@ -9361,7 +9351,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51986" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61141" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

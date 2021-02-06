@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const compression = require('compression');
 const cookieParser = require('cookie-parser');
 
 const userRouter = require('./routes/userRoutes');
@@ -17,6 +18,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true }));
+
+app.use(compression());
 
 app.use('/', viewRouter);
 app.use('/api/v1/users', userRouter);

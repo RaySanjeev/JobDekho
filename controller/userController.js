@@ -34,7 +34,6 @@ const multerStorage = multer.diskStorage({
 });
 
 const multerFilter = (req, file, cb) => {
-  console.log('file');
   if (file.mimetype.startsWith('application/pdf')) {
     cb(null, true);
   } else {
@@ -67,7 +66,6 @@ exports.resumeDB = catchAsync(async (req, res, next) => {
 });
 
 exports.createUser = catchAsync(async (req, res, next) => {
-  console.log(req.body);
   const user = await User.create({
     name: req.body.name,
     email: req.body.email,
@@ -86,7 +84,6 @@ exports.createUser = catchAsync(async (req, res, next) => {
 });
 
 exports.updateName = catchAsync(async (req, res, next) => {
-  console.log(fs.readdirSync('./public/resume'));
   const { name } = req.body;
   await User.findByIdAndUpdate(req.user._id, { name });
   next();
@@ -99,7 +96,6 @@ exports.updateEmail = catchAsync(async (req, res, next) => {
 });
 
 exports.updateResume = catchAsync(async (req, res, next) => {
-  // console.log(resumeName);
   await User.findByIdAndUpdate(req.user._id, { resume: resumeName });
   next();
 });
