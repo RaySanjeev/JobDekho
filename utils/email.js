@@ -2,8 +2,8 @@
 const htmlToText = require('html-to-text');
 const pug = require('pug');
 const mailgun = require('mailgun-js')({
-  apiKey: process.env.API_KEY,
-  domain: process.env.API_URL,
+  apiKey: process.env.MAILGUN_API_KEY,
+  domain: process.env.MAILGUN_API_URL,
 });
 const mg = mailgun;
 
