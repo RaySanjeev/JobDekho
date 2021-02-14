@@ -7,7 +7,7 @@ const success = async (position) => {
     const longitude = position.coords.longitude;
     const res = await axios({
       method: 'GET',
-      url: `http://127.0.0.1:3000/api/v1/jobs/${latitude}/${longitude}`,
+      url: `/api/v1/jobs/${latitude}/${longitude}`,
     });
     if (res.status === 200) {
       // alert('Done!!');

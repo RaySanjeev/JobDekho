@@ -5,7 +5,7 @@ export const sendOTP = async (email) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:3000/api/v1/users/sendOTP',
+      url: '/api/v1/users/sendOTP',
       data: {
         email,
       },
@@ -22,7 +22,7 @@ export const signupOTP = async (email, name, role) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:3000/api/v1/users/signupOTP',
+      url: '/api/v1/users/signupOTP',
       data: {
         email,
         role,
@@ -40,7 +40,7 @@ export const login = async (otp, email) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:3000/api/v1/users/login',
+      url: '/api/v1/users/login',
       data: {
         otp,
         email,
@@ -64,7 +64,7 @@ export const logout = async () => {
   try {
     const res = await axios({
       method: 'GET',
-      url: 'http://127.0.0.1:3000/api/v1/users/logout',
+      url: '/api/v1/users/logout',
     });
     if (res.data.status === 'success') {
       window.location.assign('/login');

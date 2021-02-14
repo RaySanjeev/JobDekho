@@ -5,7 +5,7 @@ export const renderProfile = async () => {
   try {
     const res = await axios({
       method: 'GET',
-      url: 'http://127.0.0.1:3000/userDashboard/profile',
+      url: '/userDashboard/profile',
     });
     window.location.assign('/userDashboard/profile');
   } catch (err) {
@@ -17,7 +17,7 @@ export const uploadResume = async (data) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:3000/api/v1/users/uploadResume',
+      url: '/api/v1/users/uploadResume',
       data,
     });
     if (res.data.status === 'success') {
@@ -34,7 +34,7 @@ export const updateResumeField = async (jobId) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:3000/api/v1/jobs/addResume',
+      url: '/api/v1/jobs/addResume',
       data: {
         jobId,
       },

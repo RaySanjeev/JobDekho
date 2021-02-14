@@ -3,7 +3,7 @@ import '@babel/polyfill';
 import { sendOTP, login, logout, signupOTP } from './login';
 import { renderProfile, uploadResume, updateResumeField } from './submitForms';
 import { getGeoLocation } from './geoLocation';
-import { showAalert, showAlert } from './alert';
+import { showAlert } from './alert';
 
 // DOM ELEMENTS
 const sendOTPBtn = document.querySelector('.send__otp');
@@ -85,7 +85,7 @@ if (jobApply) {
       const count = el.closest('.list__jobs').childElementCount;
       if (Number(count) === 1) {
         el.closest('.list__jobs').classList.add('slide__right');
-        showAalert('error', 'You have applied in all jobs. Try again tomorrow');
+        showAlert('error', 'You have applied in all jobs. Try again tomorrow');
       }
       el.closest('.job').classList.add('slide__right');
     });
