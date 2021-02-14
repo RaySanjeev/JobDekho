@@ -1,6 +1,6 @@
 const Job = require('../model/jobModel');
 const catchAsync = require('../utils/catchAsync');
-const appError = require('../utils/appError');
+const AppError = require('../utils/appError');
 
 exports.createJob = catchAsync(async (req, res, next) => {
   req.body.employer = req.user._id;
@@ -27,7 +27,7 @@ exports.addUser = catchAsync(async (req, res, next) => {
     if (String(el._id) === String(req.user._id)) state = true;
   });
   if (state) {
-    return next(new appError('You have already applied once', 400));
+    return next(new AppError('You have already applied once', 400));
   }
 
   const job = await Job.findByIdAndUpdate(req.body.jobId, {

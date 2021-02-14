@@ -3,7 +3,6 @@ const { promisify } = require('util');
 
 const Email = require('../utils/email');
 const User = require('../model/userModel');
-const appError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
@@ -42,7 +41,7 @@ exports.sendOTP = catchAsync(async (req, res, next) => {
   const timeStamp = Date.now() + 10 * 24 * 60 * 60 * 1000;
 
   if (!email) {
-    return next(new appError('Please provide email.', 400));
+    return next(new AppError('Please provide email.', 400));
   }
 
   const user = await User.findOneAndUpdate(
@@ -54,7 +53,7 @@ exports.sendOTP = catchAsync(async (req, res, next) => {
   );
 
   if (!user) {
-    return next(new appError('No user account found. Please sign up!', 400));
+    return next(new AppError('No user account found. Please sign up!', 400));
   }
 
   new Email(user, randomNumber).sendOTP();
