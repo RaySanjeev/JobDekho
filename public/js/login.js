@@ -67,7 +67,7 @@ export const logout = async () => {
       url: '/api/v1/users/logout',
     });
     if (res.data.status === 'success') {
-      window.location.assign('/login');
+      window.location.assign('/');
       showAlert('success', 'Logged Out Successfully');
     }
   } catch (err) {

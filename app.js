@@ -9,6 +9,7 @@ const rateLimit = require('express-rate-limit');
 const userRouter = require('./routes/userRoutes');
 const viewRouter = require('./routes/viewRouter');
 const jobRouter = require('./routes/jobRoutes');
+const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controller/errorController');
 const app = express();
 

@@ -12,10 +12,12 @@ const loginLabel = document.querySelector('.login__label');
 const loginInput = document.querySelector('.login__input');
 const otpLabel = document.querySelector('.otp__label');
 const otpInput = document.querySelector('.otp__input');
+const updateUser = document.querySelectorAll('.submit__user');
 
 const profileBtn = document.querySelector('.nav__btn--1');
 const jobApply = document.querySelectorAll('.job__apply');
 const logoutBtn = document.querySelector('.nav__btn--2');
+const createJob = document.querySelector('.employer__submit');
 
 const signup = document.querySelector('.signup');
 const signupPage = document.querySelector('.signup__page');
@@ -26,6 +28,10 @@ const tabBlock = document.querySelectorAll('.block');
 const applicantsPage = document.querySelector('.main__applicants');
 
 const geoLocationBtn = document.querySelector('.geo__jobs');
+
+if (createJob) {
+  createJob.textContent = 'CREATING...';
+}
 
 if (logoutBtn) {
   logoutBtn.addEventListener('click', () => {
@@ -60,6 +66,8 @@ if (loginBtn) {
     e.preventDefault();
     const otp = document.querySelector('.otp__input').value;
     const email = document.getElementById('email').value;
+
+    loginBtn.textContent = 'LOGING IN...';
     login(otp, email);
   });
 }
@@ -79,6 +87,7 @@ if (jobApply) {
         el.closest('.upload').firstChild.lastChild.files[0]
       );
 
+      el.textContent = 'Submitting...';
       updateResumeField(jobId);
       uploadResume(form);
 
@@ -148,3 +157,12 @@ document.addEventListener('click', function (e) {
     login(otp, email);
   }
 });
+
+if (updateUser) {
+  updateUser.forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      el.textContent = 'Updating...';
+    });
+  });
+}

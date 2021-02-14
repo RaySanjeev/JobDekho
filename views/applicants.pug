@@ -32,7 +32,7 @@ html(lang="en")
         h1.applicant__content--heading Candidates
         - i = 0;
         each candidates in jobCandidates
-          .block.visibility(class='candidates__block--' + i++)
+          .block.hidden(class='candidates__block--' + i++)
             each candidate in candidates
               .applicant__user
                 p.applicant__name
