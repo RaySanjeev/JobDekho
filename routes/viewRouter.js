@@ -5,7 +5,7 @@ const authController = require('../controller/authController');
 const jobController = require('../controller/jobController');
 const router = express.Router();
 
-router.route('/login').get(viewController.renderLogin);
+router.route('/').get(viewController.renderLogin);
 
 router.route('/signup').get(viewController.renderSignup);
 
